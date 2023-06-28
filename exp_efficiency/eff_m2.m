@@ -74,9 +74,9 @@ for ir=1:1:length(minreversals)
     for in=1:N
     % generate gambling array
     gambling_array = randperm(minreversals(ir)*2,round(minreversals(ir)*ratio(ira)*2));
-    virtualanswerersiud2bm2([], [], [],[], L_50s,s_50s,p,gambling_array);
+    virtualanswerergrabrm2([], [], [],[], L_50s,s_50s,p,gambling_array);
       [threshold, values, reversals, measures, presentations, answers, adjustments] =...
-        siud2b(presentstimulus, @virtualanswerersiud2bm2, minreversals(ir), discardreversals, minmeasures, startvalue, step_size,level_diff);
+        grabr(presentstimulus, @virtualanswerergrabrm2, minreversals(ir), discardreversals, minmeasures, startvalue, step_size,level_diff);
       numpresentations(ir,ira,in) = length(values);
       thresholds(ir,ira,in) = threshold;
       fprintf('.');
@@ -94,7 +94,7 @@ for ira=1:length(ratio)
 N=avgnumpresentations(ir,ira);
 current_mean=means(ir,ira);
 std=stds(ir,ira);
-fprintf(fid,'SIUD2b\t%2.0f\t%2.1f\t%2.1f\t%2.1f\tS\t%s\t\n',minreversals(ir),current_mean,std,N,ls{ira});
+fprintf(fid,'GRaBr\t%2.0f\t%2.1f\t%2.1f\t%2.1f\tS\t%s\t\n',minreversals(ir),current_mean,std,N,ls{ira});
 end
 end
 fclose(fid);
@@ -333,8 +333,7 @@ end
 means = mean(thresholds,3,'omitnan');
 stds = std(thresholds,[],3,'omitnan'); 
 avgnumpresentations = mean(numpresentations,3,'omitnan');
-fid = fopen(['eff_quest_method2.txt'],'w+');
-fprintf(fid,'method\tminreversals\tmean\tstd\tN\ttype\tlistener\t\n');
+fid = fopen(['eff_method2.txt'],'a+');
 for im=1:length(minmeasures)
 for ir=1:length(ratio)
 N=avgnumpresentations(im,ir);
@@ -396,8 +395,7 @@ end
 means = mean(thresholds,3,'omitnan');
 stds = std(thresholds,[],3,'omitnan'); 
 avgnumpresentations = mean(numpresentations,3,'omitnan');
-fid = fopen(['eff_uml_method2.txt'],'w+');
-fprintf(fid,'method\tminreversals\tmean\tstd\tN\ttype\tlistener\t\n');
+fid = fopen(['eff_method2.txt'],'a+');
 for im=1:length(minmeasures)
 for ir=1:length(ratio)
 N=avgnumpresentations(im,ir);

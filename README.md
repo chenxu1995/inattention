@@ -14,6 +14,22 @@ scripts to run numerical experiments for robustness comparison.
 - exp_efficiency
 scripts to run numerical experiments for efficiency comparison. Each sub-folder corresponds to each adaptive procedure. Run run_*_m1.m for long-term inattention model while run run_*_m2.m for short-term inattention.
 
+- Table
+scripts to reproduce table II in [1].
+
+- Statistics
+scripts for statistical analysis for figures 4 and 6 in [1].
+
+## Available tools for adaptive procedures
+
+- Maximum likelihood procedure (MLP) 
+- Single interval adjustment matrix (SIAM) 
+- Single interval up and down (SIUD)
+- Automated pure-tone audiometry (APTA) 
+- GRaBr [1]
+- Updated maximum likelihood procedure (UML) 
+- QUEST+ 
+
 
 ## External packages
 

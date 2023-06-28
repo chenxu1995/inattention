@@ -73,11 +73,11 @@ presentstimulus = @(presentation,value, dvalue, first_or_second_level_higher) pr
 
 for ir=1:1:length(minreversals)
     for ip=1:length(p)
-    virtualanswerersiud2b([], [], [],[],L_50s,s_50s,p{ip});
+    virtualanswerergrabr([], [], [],[],L_50s,s_50s,p{ip});
     for in=1:N
       % do the in-th MC simulation
       [threshold, values, reversals, measures, presentations, answers, adjustments] =...
-        siud2b(presentstimulus, @virtualanswerersiud2b,minreversals(ir), discardreversals,minmeasures, startvalue, step_size,level_diff);
+        grabr(presentstimulus, @virtualanswerergrabr,minreversals(ir), discardreversals,minmeasures, startvalue, step_size,level_diff);
       numpresentations(ir,ip,in) = length(values);
       thresholds(ir,ip,in) = threshold;
       fprintf('.');
@@ -96,7 +96,7 @@ for ip=1:length(p)
 N=avgnumpresentations(ir,ip);
 current_mean=means(ir,ip);
 std=stds(ir,ip);
-fprintf(fid,'SIUD2b\t%2.0f\t%2.1f\t%2.1f\t%2.1f\tL\t%s\t\n',minreversals(ir),current_mean,std,N,ls{ip});
+fprintf(fid,'GRaBr\t%2.0f\t%2.1f\t%2.1f\t%2.1f\tL\t%s\t\n',minreversals(ir),current_mean,std,N,ls{ip});
 end
 end
 fclose(fid);
@@ -317,8 +317,7 @@ for im=1:1:length(minmeasures)
 means = mean(thresholds,3,'omitnan');
 stds = std(thresholds,[],3,'omitnan'); 
 avgnumpresentations = mean(numpresentations,3,'omitnan');
-fid = fopen(['eff_quest_method1.txt'],'w+');
-fprintf(fid,'method\tminreversals\tmean\tstd\tN\ttype\tlistener\t\n');
+fid = fopen(['eff_method1.txt'],'a+');
 for im=1:length(minmeasures)
 for ip=1:length(p)
 N=avgnumpresentations(im,ip);
@@ -374,8 +373,7 @@ for im=1:1:length(minmeasures)
 means = mean(thresholds,3,'omitnan');
 stds = std(thresholds,[],3,'omitnan'); 
 avgnumpresentations = mean(numpresentations,3,'omitnan');
-fid = fopen(['eff_uml_method1.txt'],'w+');
-fprintf(fid,'method\tminreversals\tmean\tstd\tN\ttype\tlistener\t\n');
+fid = fopen(['eff_method1.txt'],'a+');
 for im=1:length(minmeasures)
 for ip=1:length(p)
 N=avgnumpresentations(im,ip);
