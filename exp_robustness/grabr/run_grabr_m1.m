@@ -17,21 +17,21 @@ step_size=[8 6 3 1];
 p = {[0 0.8],[0 0.9],[0 1]};  
 ls={'NC','MC','FC'};
 
-fid = fopen(['opt_siud2b.txt'],'w+');
+fid = fopen(['opt_grabr.txt'],'w+');
 fprintf(fid,'threshold\tN\tmethod\tlistener\ttype\t\n');
 %% Allocate memory
 thresholds = nan(N,3);
 numpresentations = nan(N,3);
 presentstimulus = @(presentation,value, dvalue, first_or_second_level_higher) presentation;
 for ip=1:length(p)
-    virtualanswerersiud2b([], [],[], [],L_50s,s_50s,p{ip});
+    virtualanswerergrabr([], [],[], [],L_50s,s_50s,p{ip});
     for in=1:N
       % do the in-th MC simulation
       [threshold, values, reversals, measures, presentations, answers, adjustments] =...
-        siud2b(presentstimulus, @virtualanswerersiud2b,minreversals, discardreversals, minmeasures, startvalue,step_size,level_diff);
+        grabr(presentstimulus, @virtualanswerergrabr,minreversals, discardreversals, minmeasures, startvalue,step_size,level_diff);
       thresholds(in,ip) = threshold;
       numpresentations(in,ip) = length(values);
-      fprintf(fid,'%2.1f\t%2.0f\tSIUD2b\t%s\tL\t\n',threshold,length(values),ls{ip});
+      fprintf(fid,'%2.1f\t%2.0f\tGRaBr\t%s\tL\t\n',threshold,length(values),ls{ip});
       fprintf('.');
     end
     fprintf('\n');

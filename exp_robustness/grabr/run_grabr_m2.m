@@ -21,7 +21,7 @@ ls={'FC','MC','NC'};
 
 
 
-fid = fopen(['opt_siud2b2.txt'],'w+');
+fid = fopen(['opt_grabr2.txt'],'w+');
 %% Allocate memory
 thresholds = nan(N,3);
 numpresentations = nan(N,3);
@@ -33,12 +33,12 @@ for ir=1:length(ratio)
       % do the in-th MC simulation
           % generate gambling array
     gambling_array = randperm(minmeasure,round(minmeasure*ratio(ir)));
-    virtualanswerersiud2bm2([], [], [], [],L_50s,s_50s,p,gambling_array);
+    virtualanswerergrabrm2([], [], [], [],L_50s,s_50s,p,gambling_array);
       [threshold, values, reversals, measures, presentations, answers, adjustments] =...
-        siud2b(presentstimulus, @virtualanswerersiud2bm2,minreversals, discardreversals, minmeasures, startvalue,step_size,level_diff);
+        grabr(presentstimulus, @virtualanswerergrabrm2,minreversals, discardreversals, minmeasures, startvalue,step_size,level_diff);
       thresholds(in,ir) = threshold;
        numpresentations(in,ir) = length(values);
-       fprintf(fid,'%2.1f\t%2.0f\tSIUD2b\t%s\tS\t\n',threshold,length(values),ls{ir});
+       fprintf(fid,'%2.1f\t%2.0f\tGRaBr\t%s\tS\t\n',threshold,length(values),ls{ir});
       fprintf('.');
     end
     fprintf('\n');

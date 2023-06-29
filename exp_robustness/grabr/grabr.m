@@ -1,5 +1,5 @@
 function [threshold, values, dvalues, reversals, measures, presentations, answers, adjustments, offsets] =...
-  siud2b(presentationhandle, answerhandle, minreversals, discard_reversals, minmeasures, startvalue, level_steps, difference_steps, non_stop)
+  grabr(presentationhandle, answerhandle, minreversals, discard_reversals, minmeasures, startvalue, level_steps, difference_steps, non_stop)
 
   if nargin < 9 ; non_stop = false; end
 

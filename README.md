@@ -39,6 +39,9 @@ The codes were provided via [this link](https://hearlab.ss.uci.edu//UML/uml.html
 - QuestPlus
 The software was offered via [this link](https://github.com/petejonze/QuestPlus) [3]
 
+- SIAM 
+The package could be accessed via [this link](https://github.com/m-r-s/siam-toolkit)
+
 
 # Publication 
 [1] Xu, C., Hülsmeier, D., Buhl, M., & Kollmeier, B. (2023, June 26). How Does Inattention Influence the Robustness and Efficiency of Adaptive Procedures in the Context of Psychoacoustic Assessments via Smartphone?. https://doi.org/10.31234/osf.io/9ytd6
