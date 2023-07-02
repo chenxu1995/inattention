@@ -12,7 +12,7 @@ The two folders provide the scripts to reproduce figures 3-6 in [1].
 scripts to run numerical experiments for robustness comparison. 
 
 - exp_efficiency
-scripts to run numerical experiments for efficiency comparison. Each sub-folder corresponds to each adaptive procedure. Run run_*_m1.m for long-term inattention model while run run_*_m2.m for short-term inattention.
+scripts to run numerical experiments for efficiency comparison. Each sub-folder corresponds to each adaptive procedure. Run **run_*_m1.m** for long-term inattention model while run **run_*_m2.m** for short-term inattention.
 
 - Table
 scripts to reproduce table II in [1].
@@ -43,7 +43,7 @@ The software was offered via [this link](https://github.com/petejonze/QuestPlus)
 The package could be accessed via [this link](https://github.com/m-r-s/siam-toolkit)
 
 - MLP 
-The package could be accessed via [this link](https://dpg.unipd.it/en/mlp/mlp-toolbox) [4]
+Please check [this link](https://dpg.unipd.it/en/mlp/mlp-toolbox) [4]
 
 
 # Publication 
